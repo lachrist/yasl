@@ -60,22 +60,22 @@ function explore (locator, parents, k) {
 function output (locator, content) {
   // Update project's hierarchy
   var current = yasl
-  var name = locator.split(".")
+  var names = locator.split(".")
   for (var i=1; i<names.length-1; i++) {
     if (!current[names[i]]) {
       current[names[i]] = {}
-      process.stdout.write(names.slice(0,i-1).join(".")+" = {}\n")
+      process.stdout.write(names.slice(0,i+1).join(".")+" = {}\n")
     }
     current = current[names[i]]
   }
   // Output content
   var counter = 0
-  process.stdout.write(locator+" = (function () {")
+  process.stdout.write(locator+" = (function () {\n")
   content.split("\n").forEach(function (line) {
     if ((++counter)%5 === 0) {
-      process.stdout.write(line+" \\ "+locator+"@"+counter)
+      process.stdout.write(line+" // "+locator+"@"+counter+"\n")
     } else {
-      process.stdout.write(line)
+      process.stdout.write(line+"\n")
     }   
   })
   process.stdout.write("}())\n\n\n\n\n")
