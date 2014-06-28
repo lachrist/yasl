@@ -1,2 +1,2 @@
-yasl
-====
+Yet Another Static Loader
+=========================
