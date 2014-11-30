@@ -18,4 +18,4 @@ var exports = {}
 return exports; 
 ```
 
-An example of project compile with yasl can be found at https://github.com/lachrist/yasl/tree/master/counter.
+An example of project compiled with the command `yasl ./counter yasl.button > ./counter/main.js` can be found at https://github.com/lachrist/yasl/tree/master/counter.
