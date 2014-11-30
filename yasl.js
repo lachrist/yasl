@@ -12,7 +12,7 @@ exports.yasl = function (root, main, output, K) {
   output.write("// Generated with Yasl\n")
   output.write("// See: https://github.com/lachrist/yasl\n")
   output.write("window.yasl = {}\n\n\n\n\n")
-  explore(main, [], k)
+  explore(main, [], K)
 
   function explore (locator, parents, k) {
     // Cycle detection

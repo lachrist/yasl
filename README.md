@@ -1,7 +1,7 @@
 # Yasl
 
 Yasl is a simple JavaScript compiler for managing dependencies between JavaScript files.
-You can install yasl with `npm install yasl -g`. Usage: 
+You can install yasl with `npm install yasl -g`. Usage:
 
 ```bash
 yasl /path/to/root yasl.relative.path.to.main > /path/to/output.js
