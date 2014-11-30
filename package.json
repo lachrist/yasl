@@ -1,0 +1,11 @@
+{ "name" : "yasl"
+, "version" : "0.0.0"
+, "files" : ["run.js", "yasl.js"]
+, "main": "yasl.js"
+, "bin": "run.js"
+, "description" : "A simple JavaScript compiler for managing dependencies between JavaScript files."
+, "keywords" : ["JavaScript", "Module", "Compiler"]
+, "homepage": "http://github.com/lachrist/yasl"
+, "author" : {"name":"Laurent Christophe", "email":"lachrist@vub.ac.be"}
+, "license" : "MIT"
+}
