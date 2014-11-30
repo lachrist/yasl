@@ -6,28 +6,16 @@ You can install yasl with `npm install yasl -g`. Usage:
 ```bash
 yasl /path/to/root yasl.relative.path.to.main > /path/to/output.js
 ```
-s
-File can easily refers to each other with the syntax:
-```javascript
+
+Each file compiled by yasl is embeded within an anonymous function to provide encapsulation.
+The return value of each file is accessible by other files using the keyword `yasl`.
+Below is a typical configuration of a JavaScript file compilable by yasl:
+
+```JavaScript
 var module_name = yasl.relative.path.to.file
+var exports = {}
+// populate the exports object
+return exports; 
 ```
 
-Yasl will explore the given main 
-
-Example 
-
-yasl ./sample/counter yasl.button > ./sample/counter/main.js 
-
-
-
-
-Yasl recusively looks for such expression within your code and bundle those files within one big ``main'' file.
-To implement encapsulation, Yasl wrap file's contents within anonymous function.
-Therefore a Yasl module looks like this:
-```javascript
-// protected scope
-// yasl imports
-// initialization
-// x is visible with import
-return x
-```
+An example of project compile with yasl can be found at https://github.com/lachrist/yasl/tree/master/counter.

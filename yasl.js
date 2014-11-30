@@ -16,7 +16,7 @@ exports.yasl = function (root, main, output, K) {
 
   function explore (locator, parents, k) {
     // Cycle detection
-    if (parents.indexOf(locator) !== -1) { return k(new Error("Cycle detected at "+parents.join(">>")+"\n")) }
+    if (parents.indexOf(locator) !== -1) { return k(new Error("Cycle detected at "+parents.join(">>"))) }
     // File is being loaded
     if (Array.isArray(pendings[locator])) { return pendings[locator].push(k) }
     // File already loaded
@@ -24,8 +24,9 @@ exports.yasl = function (root, main, output, K) {
     // Load file
     parents.push(locator)
     pendings[locator] = []
-    fs.readFile(locator.replace(/\./g, "/").replace("yasl", root)+".js", {encoding:"utf8"}, function (err, content) {
-      if (err) { return (err.message=parents.join(">>"), k(err)) }
+    var path = locator.replace(/\./g, "/").replace("yasl", root)+".js"
+    fs.readFile(path, {encoding:"utf8"}, function (err, content) {
+      if (err) { return k(new Error(err.code+" for path "+path+" at "+parents.join(">>"))) }
       var childs = content.match(/yasl(\.[a-zA-Z_$][0-9a-zA-Z_$]*)+/g)
       if (!childs) { childs = [] }
       var rdv = childs.length+1
