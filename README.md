@@ -1,5 +1,7 @@
 # Yasl
 
+IMPORTANT: prefer browserify (http://browserify.org/) over this module to build your JavaScript applications.
+
 Yasl is a simple JavaScript compiler for managing dependencies between JavaScript files.
 You can install yasl with `npm install yasl -g`. Usage:
 
